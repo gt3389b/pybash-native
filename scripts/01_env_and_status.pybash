@@ -1,0 +1,13 @@
+set
+export PROJECT=pybash
+export STAGE=dev
+echo PROJECT=$PROJECT
+echo STAGE=${STAGE}
+unset STAGE
+echo STAGE=${STAGE}
+false
+echo LAST=$?
+true && echo TRUE_CHAIN_OK
+false || echo OR_CHAIN_RECOVERED
+[ -n "$PROJECT" ] && echo PROJECT_NON_EMPTY
+[ -z "${STAGE}" ] && echo STAGE_EMPTY

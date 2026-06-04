@@ -1,0 +1,14 @@
+echo PIPE_DEMO_START
+mkdir pipe_lab
+cd pipe_lab
+echo alpha | tee stream.txt | cat
+echo beta | tee -a stream.txt | cat
+cat stream.txt
+echo gamma | dup 2 | cat > doubled.txt
+cat doubled.txt
+echo delta | dup 3 | tee tripled.txt | cat
+cat tripled.txt
+test -f stream.txt && echo STREAM_EXISTS
+test -f doubled.txt && echo DOUBLED_EXISTS
+test -f tripled.txt && echo TRIPLED_EXISTS
+echo PIPE_DEMO_DONE

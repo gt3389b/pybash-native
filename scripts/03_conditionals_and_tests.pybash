@@ -1,0 +1,15 @@
+echo begin
+false && echo should_not_appear
+true || echo should_not_appear
+false || echo recovered
+true && echo continued
+[ hello = hello ] && echo EQ_OK
+[ hello != world ] && echo NE_OK
+[ -z "" ] && echo Z_OK
+[ -n "x" ] && echo N_OK
+test path && echo NON_EMPTY_ARG_TRUE
+test -e /tmp && echo TMP_EXISTS
+test -d /tmp && echo TMP_IS_DIR
+test -f /tmp || echo TMP_NOT_FILE
+[ -f /tmp ] || echo BRACKET_TMP_NOT_FILE
+echo done

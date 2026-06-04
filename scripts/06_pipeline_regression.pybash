@@ -1,0 +1,12 @@
+echo REG_START
+mkdir reg
+cd reg
+write src one
+echo two | tee mid | cat
+cat src | dup 2 | tee out | cat
+cat out
+test -e out && echo OUT_OK
+false || echo RECOVERED
+true && echo STILL_OK
+[ -f mid ] && echo MID_FILE_OK
+echo REG_DONE

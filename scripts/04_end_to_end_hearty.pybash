@@ -1,0 +1,30 @@
+echo PHASE_1_START
+mkdir proj
+cd proj
+mkdir src
+mkdir artifacts
+write src/app line1
+append src/app _line2
+cat src/app
+cat src/app > artifacts/build.txt
+cat artifacts/build.txt
+export BUILD_OK=yes
+[ "$BUILD_OK" = yes ] && echo BUILD_FLAG_OK
+false && echo NOPE
+false || echo FALLBACK_PATH
+true && echo PRIMARY_PATH
+echo PHASE_2_STATUS=$?
+rm src/app
+rmdir src
+ls
+write artifacts/report success
+cat artifacts/report
+test -f artifacts/report && echo REPORT_FILE_OK
+test -d artifacts && echo ARTIFACTS_DIR_OK
+echo PHASE_3_CLEANUP
+rm artifacts/build.txt
+rm artifacts/report
+rmdir artifacts
+cd ..
+rmdir proj
+echo COMPLETE

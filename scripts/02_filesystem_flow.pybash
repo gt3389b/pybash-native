@@ -1,0 +1,22 @@
+pwd
+mkdir work
+cd work
+pwd
+mkdir data
+write data/a alpha
+append data/a _beta
+touch data/b
+ls
+ls data
+cat data/a
+cat data/a > copy
+cat copy
+cat data/a | cat
+cat < data/a
+[ -f data/a ] && echo FILE_A_EXISTS
+[ -d data ] && echo DATA_DIR_EXISTS
+rm data/b
+rmdir data || echo RMDIR_EXPECTED_FAIL
+rm data/a
+rmdir data
+ls
