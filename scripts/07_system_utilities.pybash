@@ -1,0 +1,20 @@
+echo UTIL_PHASE_1
+uname
+uname -a
+hostname
+hostname -s
+os-release
+os-release ID VERSION_ID
+id
+id -u
+id -un
+id -Gn
+ifconfig
+ifconfig lo0
+ifconfig missing0 || echo MISSING_INTERFACE_EXPECTED
+
+echo UTIL_PHASE_2_CUSTOMIZE
+export USER=alice
+whoami
+
+echo COMPLETE_UTILS

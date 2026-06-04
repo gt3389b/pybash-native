@@ -1,0 +1,1 @@
+{{ uptime.now_clock }} up {{ uptime.pretty }}, {{ uptime.active_users }} user{% if uptime.active_users != 1 %}s{% endif %}, load average: {{ '%.2f'|format(uptime.load.avg_1) }}, {{ '%.2f'|format(uptime.load.avg_5) }}, {{ '%.2f'|format(uptime.load.avg_15) }}

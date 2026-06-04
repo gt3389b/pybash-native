@@ -1,0 +1,9 @@
+{%- for iface in interfaces %}
+{{ iface.name }}: flags={{ iface.flags }} mtu {{ iface.mtu }}
+{%- for addr in iface.address_lines %}
+	{{ addr.label }} {{ addr.value }}
+{%- endfor %}
+{%- if not loop.last %}
+
+{%- endif %}
+{%- endfor %}

@@ -1,0 +1,15 @@
+echo DYNAMIC_PHASE_1
+uptime
+load
+
+uptime && echo UPTIME_OK
+load && echo LOAD_OK
+
+echo DYNAMIC_PHASE_2
+uptime
+load
+
+uptime -x || echo UPTIME_USAGE_GUARD_OK
+load -x || echo LOAD_USAGE_GUARD_OK
+
+echo COMPLETE_DYNAMIC

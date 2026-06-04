@@ -30,3 +30,21 @@ def test_module_main_exits_with_cli_status(monkeypatch):
         runpy.run_module("pybash.__main__", run_name="__main__")
 
     assert exc.value.code == 9
+
+
+def test_alias_package_imports_shell_class():
+    from pybash_native import PyBashShell
+
+    shell = PyBashShell()
+    assert shell.cwd == "/home/user"
+
+
+def test_alias_module_main_exits_with_cli_status(monkeypatch):
+    import pybash.cli as cli
+
+    monkeypatch.setattr(cli, "main", lambda: 11)
+
+    with pytest.raises(SystemExit) as exc:
+        runpy.run_module("pybash_native.__main__", run_name="__main__")
+
+    assert exc.value.code == 11

@@ -1,0 +1,11 @@
+{%- if id_mode == 'default' -%}
+{%- set primary = identity.uid|string ~ '(' ~ identity.user ~ ')' -%}
+{%- set primary_group = identity.gid|string ~ '(' ~ identity.group ~ ')' -%}
+{%- set groups = [] -%}
+{%- for g in identity.groups -%}
+{%- set _ = groups.append(g.gid|string ~ '(' ~ g.name ~ ')') -%}
+{%- endfor -%}
+uid={{ primary }} gid={{ primary_group }} groups={{ groups | join(',') }}
+{%- else -%}
+{{ id_lines | join('\n') }}
+{%- endif -%}

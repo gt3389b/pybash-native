@@ -1,0 +1,7 @@
+{%- set values = [] -%}
+{%- for field in uname_fields -%}
+{%- if field.value != '' -%}
+{%- set _ = values.append(field.value) -%}
+{%- endif -%}
+{%- endfor -%}
+{{ values | join(' ') }}

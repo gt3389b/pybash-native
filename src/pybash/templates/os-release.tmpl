@@ -1,0 +1,10 @@
+{%- if os_release_mode == 'values' -%}
+{{ os_release_values | join('\n') }}
+{%- else -%}
+{%- for item in os_release_items -%}
+{{ item.key }}={{ item.value | tojson }}
+{%- if not loop.last %}
+
+{%- endif -%}
+{%- endfor -%}
+{%- endif -%}
